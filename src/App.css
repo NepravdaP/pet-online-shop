@@ -33,6 +33,9 @@ ul {
   list-style: none;
   gap: 20%;
 }
+.nav-link .route-link {
+  font-size: 20px;
+}
 .header-logo {
   margin-right: auto;
 }

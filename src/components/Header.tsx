@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-function Header() {
+const Header = () => {
   return (
     <header>
       <h1 className="header-logo">Logo</h1>
@@ -43,6 +43,6 @@ function Header() {
       </div>
     </header>
   );
-}
+};
 
 export default Header;
