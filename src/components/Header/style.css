@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2% 5%;
+  background-color: #6f2232;
+}
+h1 {
+  color: #fff;
+}
+nav {
+  margin-right: auto;
+  width: 40%;
+}
+.route-link {
+  color: #fff;
+  text-decoration: none;
+}
+ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20%;
+}
+.nav-link .route-link {
+  font-size: 20px;
+}
+.header-logo {
+  margin-right: auto;
+}
+.header-sign {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+.sign-in,
+.sign-up {
+  width: 100px;
+  height: 40px;
+  border-radius: 25px;
+  border: 2px solid #4e4e50;
+}
+.sign-in {
+  background-color: #4e4e50;
+}
+.sign-up {
+  background-color: transparent;
+}

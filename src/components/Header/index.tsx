@@ -1,6 +1,10 @@
-import React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
-const Header = () => {
+import React, { FC, useState } from "react";
+import { Link } from "react-router-dom";
+import "./style.css";
+// import DropdownMenu from "../DropdownMenu";
+// const [isVisible, setIsVisible] = useState(false);
+
+const Header: FC = () => {
   return (
     <header>
       <h1 className="header-logo">Logo</h1>
@@ -16,7 +20,11 @@ const Header = () => {
               About
             </Link>
           </li>
-          <li className="nav-link">
+          <li
+            className="nav-link"
+            // onMouseEnter={() => setIsVisible(true)}
+            // onMouseLeave={() => setIsVisible(false)}
+          >
             <Link to="/products" className="route-link">
               Products
             </Link>

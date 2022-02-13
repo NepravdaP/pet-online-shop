@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const Products = () => {
+const Products:FC = () => {
   return (
     <div className="products">
       <h1>Products</h1>
