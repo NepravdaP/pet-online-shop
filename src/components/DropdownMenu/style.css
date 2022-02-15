@@ -1,18 +1,19 @@
 .dropdown-menu {
   position: absolute;
-  top: 7%;
-  left: 42%;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.drop-triangle {
-  margin-left: 90px;
+/* .drop-triangle {
+  margin-left: 65px;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 0 10px 10px 10px;
   border-color: transparent transparent #4e4e50 transparent;
-}
+} */
 .drop-block {
-  width: 200px;
+  width: 150px;
   height: 100px;
   display: flex;
   justify-content: space-around;

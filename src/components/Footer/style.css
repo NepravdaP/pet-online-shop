@@ -1,10 +1,9 @@
 footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 2% 5%;
+  padding: 0 2%;
   background-color: #6f2232;
-  flex-grow: 0.1;
 }
 .footer-link {
   display: flex;
@@ -17,10 +16,12 @@ footer {
 }
 .blizz-logo {
   width: 120px;
+
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)
     hue-rotate(272deg) brightness(104%) contrast(105%);
 }
 .fromm-logo {
   width: 120px;
+
   filter: invert(1);
 }

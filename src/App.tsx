@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import "./App.css";
-import Header from "./components/Header";
+
 import About from "./components/About";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
@@ -9,12 +9,13 @@ import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HeaderContainer from "./components/Header";
 
 const App: FC = () => {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <HeaderContainer />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
