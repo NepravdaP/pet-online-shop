@@ -1,0 +1,39 @@
+.sidebar {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #4e4e50;
+  border: 1px solid #fff;
+
+  z-index: 1;
+}
+
+.side-nav {
+  padding-top: 15vh;
+  margin-bottom: auto;
+  /* margin-bottom: 300px; */
+}
+.menu-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.menu-link {
+  padding: 20% 0;
+}
+
+.menu-link .route-link {
+  font-size: 20px;
+}
+.cart {
+  margin-bottom: 8vh;
+}
+.sign-block {
+  margin-bottom: 8vh;
+}
