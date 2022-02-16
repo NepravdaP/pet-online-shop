@@ -1,10 +1,13 @@
 import React, { FC } from "react";
-
-const Home:FC = () => {
+import Slider from "../Slider/insdex";
+import { HomeWrapper } from "./styled";
+import "./style.css";
+const Home: FC = () => {
   return (
-    <div className="home">
-      <h1>Home </h1>
-    </div>
+    <HomeWrapper>
+      <h1 className="home-header">Home </h1>
+      <Slider />
+    </HomeWrapper>
   );
 };
 

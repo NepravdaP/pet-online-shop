@@ -1,0 +1,66 @@
+span {
+  align-self: center;
+}
+.each-slide {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.img-el {
+  position: relative;
+  height: 60vh;
+  width: 80vw;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+.game-platform {
+  background-color: rgba(78, 78, 80, 0.8);
+  display: flex;
+  flex-wrap: wrap;
+  width: max-content;
+  padding: 10px 10px;
+  text-align: justify;
+  font-size: 18px;
+}
+.game-info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0%;
+  width: 100%;
+  background-color: rgba(78, 78, 80, 0.8);
+}
+.rating-pricing {
+  display: flex;
+}
+.game-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.game-price {
+  padding-left: 10px;
+}
+.game-rating {
+  margin-right: 10px;
+}
+.star-icon {
+  color: #fff;
+  filter: invert(11%) sepia(24%) saturate(5862%) hue-rotate(1deg)
+    brightness(105%) contrast(106%);
+}
+.slider-btn-left {
+  position: absolute;
+  left: 5%;
+  height: 45px;
+  color: #c3073f;
+  cursor: pointer;
+}
+.slider-btn-right {
+  position: absolute;
+  right: 5%;
+  height: 45px;
+  color: #c3073f;
+  cursor: pointer;
+}
