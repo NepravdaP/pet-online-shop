@@ -2,14 +2,15 @@ span {
   align-self: center;
 }
 .each-slide {
-  height: 100%;
+  position: relative;
+
   display: flex;
   justify-content: space-between;
 }
 .img-el {
   position: relative;
-  height: 60vh;
-  width: 80vw;
+  min-height: 45vh;
+  width: 60vw;
   background-size: cover;
   background-position: center;
   margin: auto;
@@ -55,14 +56,14 @@ span {
 .slider-btn-left {
   position: absolute;
   top: 50%;
-  left: 5%;
+  left: 10%;
   height: 45px;
   color: #c3073f;
   cursor: pointer;
 }
 .slider-btn-right {
   position: absolute;
-  right: 5%;
+  right: 10%;
   top: 50%;
   height: 45px;
   color: #c3073f;
