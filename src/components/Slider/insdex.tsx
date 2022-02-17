@@ -1,5 +1,5 @@
 import React from "react";
-import { Fade } from "react-slideshow-image";
+import { Fade, SlideshowProps } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { games } from "./constants";
 import { SliderContainer } from "./styled";
@@ -12,8 +12,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Slider = () => {
-  const FadeProperties = {
+  const FadeProperties: SlideshowProps = {
     transitionDuration: 1800,
+    duration: 3000,
+    infinite: true,
     prevArrow: (
       <FontAwesomeIcon className="slider-btn-left" icon={faChevronLeft} />
     ),

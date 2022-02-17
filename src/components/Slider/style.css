@@ -31,9 +31,11 @@ span {
   bottom: 0%;
   width: 100%;
   background-color: rgba(78, 78, 80, 0.8);
+  padding: 10px 0;
 }
 .rating-pricing {
   display: flex;
+  margin-top: 10px;
 }
 .game-title {
   font-size: 25px;
@@ -52,6 +54,7 @@ span {
 }
 .slider-btn-left {
   position: absolute;
+  top: 50%;
   left: 5%;
   height: 45px;
   color: #c3073f;
@@ -60,6 +63,7 @@ span {
 .slider-btn-right {
   position: absolute;
   right: 5%;
+  top: 50%;
   height: 45px;
   color: #c3073f;
   cursor: pointer;

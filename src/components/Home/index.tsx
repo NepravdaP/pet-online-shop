@@ -6,7 +6,9 @@ const Home: FC = () => {
   return (
     <HomeWrapper>
       <h1 className="home-header">Home </h1>
+      {/* <div style={{ position: "relative", display: "flex" }}> */}
       <Slider />
+      {/* </div> */}
     </HomeWrapper>
   );
 };
