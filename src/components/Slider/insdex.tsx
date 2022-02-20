@@ -10,6 +10,11 @@ import {
   faStar,
   faChevronLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import {
+  faApple,
+  faLinux,
+  faWindows,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Slider = () => {
   const FadeProperties: SlideshowProps = {
@@ -34,7 +39,15 @@ const Slider = () => {
               style={{ backgroundImage: `url(${el.img})` }}
             >
               <div className="game-platform" style={{ color: el.color }}>
-                {el.platform}
+                {el.ps && (
+                  <FontAwesomeIcon className="platform-icon" icon={faApple} />
+                )}
+                {el.pc && (
+                  <FontAwesomeIcon className="platform-icon" icon={faWindows} />
+                )}
+                {el.xbox && (
+                  <FontAwesomeIcon className="platform-icon" icon={faLinux} />
+                )}
               </div>
               <div className="game-info" style={{ color: el.color }}>
                 <div className="game-title">{el.title}</div>

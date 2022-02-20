@@ -7,3 +7,7 @@ export const HomeWrapper = styled.div`
   /* align-items: center; */
   position: relative;
 `;
+export const SearchWrapper = styled.div`
+  position: relative;
+  margin: 50px auto;
+`;

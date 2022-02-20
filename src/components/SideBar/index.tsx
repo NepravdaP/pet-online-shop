@@ -3,17 +3,24 @@ import { Link } from "react-router-dom";
 import { ROUTES } from "../../routes";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { Props } from "./types";
+import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Props, SidebarProps } from "./types";
 import { SidebarWrapper } from "./styled";
 import { links } from "./constants";
 
-const SideBar: FC<Props> = ({ isOpen }) => {
+const SideBar: FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
   return (
     // <div className={isOpen ? "sidebar opened" : "sidebar closed"}>
     <SidebarWrapper isOpen={isOpen}>
       {isOpen && (
         <>
+          <FontAwesomeIcon
+            className="x-icon"
+            icon={faXmark}
+            onClick={() => {
+              setIsOpen(!isOpen);
+            }}
+          />
           <nav className="side-nav ">
             <ul className="menu-list">
               {links.map((el) => (

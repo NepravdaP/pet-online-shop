@@ -7,19 +7,19 @@
 .img-el {
   position: relative;
   z-index: 10;
-  min-height: 45vh;
-  width: 60vw;
+  min-height: 60vh;
+  width: 80vw;
   background-size: cover;
   background-position: center;
   margin: auto;
 }
 .game-platform {
   background-color: rgba(78, 78, 80, 0.8);
-  display: flex;
+
   flex-wrap: wrap;
   width: max-content;
   padding: 10px 10px;
-  text-align: justify;
+
   font-size: 18px;
 }
 .game-info {
@@ -55,16 +55,20 @@
 .slider-btn-left {
   position: absolute;
   top: 50%;
-  left: 10%;
+  left: 5%;
   height: 45px;
   color: #c3073f;
   cursor: pointer;
 }
 .slider-btn-right {
   position: absolute;
-  right: 10%;
+  right: 5%;
   top: 50%;
   height: 45px;
   color: #c3073f;
   cursor: pointer;
+}
+.platform-icon {
+  height: 20px;
+  margin-right: 10px;
 }

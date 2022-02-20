@@ -1,6 +1,3 @@
 import styled from "styled-components";
 
-export const SearchWrapper = styled.div`
-  margin: 50px auto;
-  margin-bottom: 150px;
-`;
+export const SearchBarWrapper = styled.div``;
