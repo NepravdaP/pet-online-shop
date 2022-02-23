@@ -1,10 +1,12 @@
-import React from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Fade, SlideshowProps } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { games } from "./constants";
 import { SliderContainer } from "./styled";
 import "./style.css";
+import { GamesItem } from "./types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import {
   faChevronRight,
   faStar,
@@ -16,7 +18,21 @@ import {
   faWindows,
 } from "@fortawesome/free-brands-svg-icons";
 
-const Slider = () => {
+const Slider: FC = () => {
+  const [products, setProducts] = useState<GamesItem[]>([]);
+
+  const getProducts = async () => {
+    try {
+      const res = await axios.get("http://localhost:5000/api/products/all");
+      setProducts(res.data);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   const FadeProperties: SlideshowProps = {
     transitionDuration: 1800,
     duration: 3000,
@@ -29,23 +45,25 @@ const Slider = () => {
     ),
   };
 
+  // const products = await fetch("http://localhost:5000/api/products/all");
+
   return (
     <SliderContainer>
       <Fade {...FadeProperties}>
-        {games.map((el) => (
-          <div className="each-slide" key={el.img}>
+        {products.map((el) => (
+          <div className="each-slide" key={el.image}>
             <div
               className="img-el"
-              style={{ backgroundImage: `url(${el.img})` }}
+              style={{ backgroundImage: `url(${el.image})` }}
             >
               <div className="game-platform" style={{ color: el.color }}>
-                {el.ps && (
+                {el.mac && (
                   <FontAwesomeIcon className="platform-icon" icon={faApple} />
                 )}
-                {el.pc && (
+                {el.win && (
                   <FontAwesomeIcon className="platform-icon" icon={faWindows} />
                 )}
-                {el.xbox && (
+                {el.linux && (
                   <FontAwesomeIcon className="platform-icon" icon={faLinux} />
                 )}
               </div>

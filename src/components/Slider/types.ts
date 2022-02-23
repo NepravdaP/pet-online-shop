@@ -1,7 +1,3 @@
-export type Props = {
-  searchResult?: Array<GamesItem>;
-  isSearching: boolean;
-};
 export interface GamesItem {
   _id: string;
   title: string;

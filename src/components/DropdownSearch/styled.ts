@@ -14,4 +14,5 @@ export const DropElement = styled.div`
   vertical-align: middle;
   font-size: 16px;
   padding-left: 2%;
+  
 `;

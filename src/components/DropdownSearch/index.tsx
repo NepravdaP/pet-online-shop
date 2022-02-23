@@ -1,14 +1,18 @@
 import React, { FC } from "react";
 import { DropElement, SearchDropDown } from "./styled";
 import { Props } from "./types";
-
-const DropdownSearch: FC<Props> = ({ searchResult }) => {
+import "./style.css";
+const DropdownSearch: FC<Props> = ({ searchResult, isSearching }) => {
   return (
     <SearchDropDown>
       {searchResult?.map((el) => (
         <DropElement key={Math.random() * 10000}>{el.title}</DropElement>
       ))}
-      {/* <DropElement>Battlefield 2042</DropElement> */}
+      {isSearching && (
+        <DropElement>
+          <span className="loader" />
+        </DropElement>
+      )}
     </SearchDropDown>
   );
 };
