@@ -16,7 +16,7 @@ const MobileHeader: FC = () => {
 
   return (
     <header>
-      <SideBar isOpen={isOpen} />
+      <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
       <div
         className="menu-bars"
         onClick={() => {

@@ -8,13 +8,13 @@ const DropdownMenu: FC = () => {
       <div className="drop-triangle"></div>
       <div className="drop-block">
         <Link to="/products/pc" className="drop-link">
-          PC
+          Win
         </Link>
         <Link to="/products/ps" className="drop-link">
-          PS
+          Mac
         </Link>
         <Link to="/products/xbox" className="drop-link">
-          Xbox
+          Linux
         </Link>
       </div>
     </div>

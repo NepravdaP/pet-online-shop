@@ -13,7 +13,7 @@ export const SidebarWrapper = styled.div<Props>`
   background-color: #4e4e50;
 
   transition: ease-in-out 0.5s;
-  z-index: 1;
+  z-index: 100;
 
   transition: width 0.8s;
 
