@@ -20,3 +20,8 @@ main {
   width: 100%;
   flex-grow: 1;
 }
+#modal-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

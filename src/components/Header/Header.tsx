@@ -4,9 +4,20 @@ import DropdownMenu from "../DropdownMenu";
 import { ROUTES } from "../../routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import SignInWrapper from "../SignIn";
+import SignUpWrapper from "../SignUp";
 
-const Header = () => {
+const Header: FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isSignInVisible, setIsSignInVisible] = useState(false);
+  const [isSignUpVisible, setIsSignUpVisible] = useState(false);
+
+  const toggleSignIn = () => {
+    setIsSignInVisible(!isSignInVisible);
+  };
+  const toggleSignUp = () => {
+    setIsSignUpVisible(!isSignUpVisible);
+  };
 
   return (
     <header>
@@ -45,17 +56,25 @@ const Header = () => {
           <FontAwesomeIcon className="cart-icon" icon={faCartShopping} />
         </Link>
 
-        <button className="sign-in">
+        <button className="sign-in" onClick={toggleSignIn}>
           <Link to={ROUTES.SIGNIN} className="route-link">
             Sign In
           </Link>
         </button>
-        <button className="sign-up">
+        <button className="sign-up" onClick={toggleSignUp}>
           <Link to={ROUTES.SIGNUP} className="route-link">
             Sign Up
           </Link>
         </button>
       </div>
+      <SignInWrapper
+        isSignInVisible={isSignInVisible}
+        onBackdropClick={toggleSignIn}
+      />
+      <SignUpWrapper
+        isSignUpVisible={isSignUpVisible}
+        onBackdropClick={toggleSignUp}
+      />
     </header>
   );
 };
