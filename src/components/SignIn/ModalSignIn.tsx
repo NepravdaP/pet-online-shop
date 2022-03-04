@@ -5,12 +5,19 @@ import axios from "axios";
 import "./style.css";
 import { ModalBox, ModalWrapper } from "./styled";
 import { Formik } from "formik";
+import { useDispatch } from "react-redux";
+
+import { signIn } from "../../redux/actions";
 interface Values {
   email: string;
   password: string;
 }
-const ModalSignIn: FC<ModalSignInProps> = ({ onBackdropClick }) => {
+const ModalSignIn: FC<ModalSignInProps> = ({
+  onBackdropClick,
+  setUsername,
+}) => {
   const [errors, setErrors] = useState<string[]>([]);
+  const dispatch = useDispatch();
 
   const signInHandler = async (values: Values) => {
     try {
@@ -22,10 +29,13 @@ const ModalSignIn: FC<ModalSignInProps> = ({ onBackdropClick }) => {
       if (res.data.message) {
         setErrors([res.data.message]);
         throw new Error("Response error");
+      } else {
+        localStorage.setItem(`token`, res.data.token);
+        dispatch(signIn());
+        onBackdropClick();
+        setUsername(res.data.username);
+        console.log(res);
       }
-      onBackdropClick();
-
-      console.log(res);
     } catch (e) {
       console.error(e);
     }
@@ -38,7 +48,11 @@ const ModalSignIn: FC<ModalSignInProps> = ({ onBackdropClick }) => {
         <div className="error-box">
           {errors &&
             errors.map((el) => {
-              return <p key={el}>{el}</p>;
+              return (
+                <p className="auth-error" key={el}>
+                  {el}
+                </p>
+              );
             })}
         </div>
 

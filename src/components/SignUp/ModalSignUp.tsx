@@ -4,14 +4,20 @@ import axios from "axios";
 import { ModalBox, ModalWrapper } from "../SignIn/styled";
 import { Formik } from "formik";
 import { ModalSignUPProps } from "./types";
+import { useDispatch } from "react-redux";
+
+import { signIn } from "../../redux/actions";
 interface Values {
   username: string;
   email: string;
   password: string;
 }
-const ModalSignUp: FC<ModalSignUPProps> = ({ onBackdropClick }) => {
+const ModalSignUp: FC<ModalSignUPProps> = ({
+  onBackdropClick,
+  setUsername,
+}) => {
   const [errors, setErrors] = useState<string[]>([]);
-
+  const dispatch = useDispatch();
   const signUpHandler = async (values: Values) => {
     try {
       console.log(values);
@@ -19,14 +25,17 @@ const ModalSignUp: FC<ModalSignUPProps> = ({ onBackdropClick }) => {
         `http://localhost:5000/api/auth/signup`,
         values
       );
-      if (res.data.message) {
+      if (res.data.message != "User created") {
         setErrors([res.data.message]);
         throw new Error("Response error");
+      } else {
+        localStorage.setItem(`token`, res.data.token);
+        dispatch(signIn());
+        onBackdropClick();
+        setUsername(res.data.username);
+        console.log(res);
       }
-      onBackdropClick();
-      console.log(res);
     } catch (e) {
-      // setErrors([(e as Error).message]);
       console.error(e);
     }
   };
@@ -38,7 +47,11 @@ const ModalSignUp: FC<ModalSignUPProps> = ({ onBackdropClick }) => {
         <div className="error-box">
           {errors &&
             errors.map((el) => {
-              return <p key={el}>{el}</p>;
+              return (
+                <p className="auth-error" key={el}>
+                  {el}
+                </p>
+              );
             })}
         </div>
         <Formik
@@ -57,6 +70,7 @@ const ModalSignUp: FC<ModalSignUPProps> = ({ onBackdropClick }) => {
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               signUpHandler(values);
+
               setSubmitting(false);
             }, 200);
           }}

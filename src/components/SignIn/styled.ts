@@ -12,10 +12,10 @@ export const ModalWrapper = styled.div`
 export const ModalBox = styled.div`
   position: relative;
   top: 17.5%;
-  left: 32.5%;
+  left: 35%;
 
   backdrop-filter: blur(10px);
-  width: 35vw;
+  width: 30vw;
 
   background-color: #1a1a1d;
   z-index: 10000001;

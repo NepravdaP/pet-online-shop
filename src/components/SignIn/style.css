@@ -4,7 +4,7 @@
 .signIn-form {
   display: flex;
   flex-direction: column;
-  padding: 0 20%;
+  padding: 0 15%;
 
   margin-top: 10%;
   margin-bottom: 10%;
@@ -38,7 +38,7 @@ label {
   height: 40px;
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   background-color: #6f2232;
   border: 2px solid rgba(78, 78, 80, 0.8);
   color: #fff;
@@ -62,7 +62,8 @@ label {
   
   
 } */
-P {
+
+.auth-error {
   text-align: center;
   margin-top: 10px;
   color: #6f2232;

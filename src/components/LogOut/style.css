@@ -1,0 +1,15 @@
+.logout {
+  display: flex;
+  align-items: center;
+}
+.username {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin: 20px;
+}
+.username:hover {
+  transition: 0.3s;
+  color: #4e4e50;
+}
