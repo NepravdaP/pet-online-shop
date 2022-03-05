@@ -20,7 +20,7 @@ const LogOut: FC<LogInProps> = ({ username }) => {
       </Link>
       <FontAwesomeIcon
         onClick={() => logOut()}
-        className="cart-icon"
+        className="logout-icon"
         icon={faArrowRightFromBracket}
       />
     </div>

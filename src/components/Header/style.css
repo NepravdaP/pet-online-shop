@@ -89,7 +89,4 @@ ul {
 }
 .bar-icon {
   height: 30px;
-  position: absolute;
-  top: 1%;
-  z-index: 5;
 }

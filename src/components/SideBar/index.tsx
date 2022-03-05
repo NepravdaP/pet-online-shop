@@ -8,7 +8,12 @@ import { Props, SidebarProps } from "./types";
 import { SidebarWrapper } from "./styled";
 import { links } from "./constants";
 
-const SideBar: FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
+const SideBar: FC<SidebarProps> = ({
+  isOpen,
+  setIsOpen,
+  toggleSignIn,
+  toggleSignUp,
+}) => {
   return (
     // <div className={isOpen ? "sidebar opened" : "sidebar closed"}>
     <SidebarWrapper isOpen={isOpen}>
@@ -25,7 +30,13 @@ const SideBar: FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
             <ul className="menu-list">
               {links.map((el) => (
                 <li key={el.title} className="menu-link">
-                  <Link to={el.route} className="route-link">
+                  <Link
+                    to={el.route}
+                    onClick={() => {
+                      setIsOpen(!isOpen);
+                    }}
+                    className="route-link"
+                  >
                     {el.title}
                   </Link>
                 </li>
@@ -33,18 +44,37 @@ const SideBar: FC<SidebarProps> = ({ isOpen, setIsOpen }) => {
             </ul>
           </nav>
           <div className="cart">
-            <Link to={ROUTES.CART} className="route-link">
+            <Link
+              to={ROUTES.CART}
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+              className="route-link"
+            >
               <FontAwesomeIcon className="cart-icon" icon={faCartShopping} />
             </Link>
           </div>
           <div className="sign-block">
-            <button className="sign-in">
-              <Link to={ROUTES.SIGNIN} className="route-link">
+            <button className="sign-in" onClick={toggleSignIn}>
+              <Link
+                to={ROUTES.SIGNIN}
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+                className="route-link"
+              >
                 Sign In
               </Link>
             </button>
-            <button className="sign-up">
-              <Link to={ROUTES.SIGNUP} className="route-link">
+            <button className="sign-up" onClick={toggleSignUp}>
+              <Link
+                to={ROUTES.SIGNUP}
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                  toggleSignUp;
+                }}
+                className="route-link"
+              >
                 Sign Up
               </Link>
             </button>

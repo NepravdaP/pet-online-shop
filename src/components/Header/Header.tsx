@@ -10,21 +10,21 @@ import { useSelector } from "react-redux";
 import { getIsLoggedInSelector } from "../../redux/selectors";
 
 import LogOut from "../LogOut";
+import { HeaderProps } from "./types";
 
-const Header: FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isSignInVisible, setIsSignInVisible] = useState(false);
-  const [isSignUpVisible, setIsSignUpVisible] = useState(false);
-  const [username, setUsername] = useState("");
-
+const Header: FC<HeaderProps> = ({
+  isVisible,
+  setIsVisible,
+  isSignInVisible,
+  isSignUpVisible,
+  setIsSignInVisible,
+  setIsSignUpVisible,
+  toggleSignIn,
+  toggleSignUp,
+  setUsername,
+  username,
+}) => {
   const isLoggedIn = useSelector(getIsLoggedInSelector);
-
-  const toggleSignIn = () => {
-    setIsSignInVisible(!isSignInVisible);
-  };
-  const toggleSignUp = () => {
-    setIsSignUpVisible(!isSignUpVisible);
-  };
 
   return (
     <header>
