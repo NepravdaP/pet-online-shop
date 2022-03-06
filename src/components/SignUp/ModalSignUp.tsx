@@ -67,7 +67,6 @@ const ModalSignUp: FC<ModalSignUPProps> = ({ onBackdropClick }) => {
           {({
             values,
             errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,

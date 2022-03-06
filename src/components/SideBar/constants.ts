@@ -1,4 +1,3 @@
-import { Routes } from "react-router-dom";
 import { ROUTES } from "../../routes";
 
 export const links = [

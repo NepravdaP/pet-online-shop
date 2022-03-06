@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { Fade, SlideshowProps } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-import { games } from "./constants";
+
 import { SliderContainer } from "./styled";
 import "./style.css";
 import { GamesItem } from "./types";
