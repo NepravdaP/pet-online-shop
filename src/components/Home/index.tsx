@@ -7,7 +7,7 @@ import DropdownSearch from "../DropdownSearch";
 
 import { GamesItem } from "../DropdownSearch/types";
 import useDebounce from "../../hooks/useDebounce";
-import { games } from "../Slider/constants";
+
 import axios from "axios";
 const Home: FC = () => {
   const [searchResult, setSearchResult] = useState<GamesItem[]>([]);

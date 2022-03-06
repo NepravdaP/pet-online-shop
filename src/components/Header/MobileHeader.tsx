@@ -17,8 +17,6 @@ const MobileHeader: FC<MobileHeaderProps> = ({
   toggleSignUp,
   isSignInVisible,
   isSignUpVisible,
-  setUsername,
-  username,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -55,15 +53,13 @@ const MobileHeader: FC<MobileHeaderProps> = ({
       <SignInWrapper
         isSignInVisible={isSignInVisible}
         onBackdropClick={toggleSignIn}
-        setUsername={setUsername}
       />
       <SignUpWrapper
         isSignUpVisible={isSignUpVisible}
         onBackdropClick={toggleSignUp}
-        setUsername={setUsername}
       />
       {isLoggedIn ? (
-        <LogOut username={username} />
+        <LogOut />
       ) : (
         <div className="login">
           <button className="sign-in" onClick={toggleSignIn}>

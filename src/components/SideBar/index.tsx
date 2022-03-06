@@ -14,6 +14,10 @@ const SideBar: FC<SidebarProps> = ({
   toggleSignIn,
   toggleSignUp,
 }) => {
+  const sidebarIsOpenHandler = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     // <div className={isOpen ? "sidebar opened" : "sidebar closed"}>
     <SidebarWrapper isOpen={isOpen}>
@@ -33,7 +37,7 @@ const SideBar: FC<SidebarProps> = ({
                   <Link
                     to={el.route}
                     onClick={() => {
-                      setIsOpen(!isOpen);
+                      sidebarIsOpenHandler;
                     }}
                     className="route-link"
                   >
@@ -47,7 +51,7 @@ const SideBar: FC<SidebarProps> = ({
             <Link
               to={ROUTES.CART}
               onClick={() => {
-                setIsOpen(!isOpen);
+                sidebarIsOpenHandler;
               }}
               className="route-link"
             >
@@ -59,7 +63,7 @@ const SideBar: FC<SidebarProps> = ({
               <Link
                 to={ROUTES.SIGNIN}
                 onClick={() => {
-                  setIsOpen(!isOpen);
+                  sidebarIsOpenHandler;
                 }}
                 className="route-link"
               >
@@ -70,8 +74,7 @@ const SideBar: FC<SidebarProps> = ({
               <Link
                 to={ROUTES.SIGNUP}
                 onClick={() => {
-                  setIsOpen(!isOpen);
-                  toggleSignUp;
+                  sidebarIsOpenHandler;
                 }}
                 className="route-link"
               >

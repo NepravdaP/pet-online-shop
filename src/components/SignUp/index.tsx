@@ -6,14 +6,11 @@ import { ModalWrapperProps } from "./types";
 const SignUpWrapper: FC<ModalWrapperProps> = ({
   onBackdropClick,
   isSignUpVisible,
-  setUsername,
 }) => {
   if (!isSignUpVisible) {
     return null;
   }
-  return (
-    <ModalSignUp setUsername={setUsername} onBackdropClick={onBackdropClick} />
-  );
+  return <ModalSignUp onBackdropClick={onBackdropClick} />;
 };
 
 export default SignUpWrapper;

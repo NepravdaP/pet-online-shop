@@ -7,7 +7,7 @@
   padding: 0 15%;
 
   margin-top: 10%;
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 label {
   font-family: "Roboto", sans-serif;
@@ -25,7 +25,7 @@ label {
   color: #fff;
   text-align: 2%;
   padding-left: 2%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .signIn-form input:focus {
   outline: none !important;
@@ -64,9 +64,24 @@ label {
 } */
 
 .auth-error {
+  position: absolute;
+
+  left: 40%;
   text-align: center;
-  margin-top: 10px;
-  color: #6f2232;
+  color: #fff;
+  /* color: #6f2232; */
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 18px;
+}
+.label-err {
+  display: flex;
+}
+.sup-err {
+  text-align: right;
+  color: #fff;
+  margin-left: auto;
+  /* color: #6f2232; */
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  padding-right: 2%;
 }

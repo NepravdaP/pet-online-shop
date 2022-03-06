@@ -8,14 +8,12 @@ import { Formik } from "formik";
 import { useDispatch } from "react-redux";
 
 import { signIn } from "../../redux/actions";
+import { SignInSchema } from "../../Schemas/signValidate";
 interface Values {
   email: string;
   password: string;
 }
-const ModalSignIn: FC<ModalSignInProps> = ({
-  onBackdropClick,
-  setUsername,
-}) => {
+const ModalSignIn: FC<ModalSignInProps> = ({ onBackdropClick }) => {
   const [errors, setErrors] = useState<string[]>([]);
   const dispatch = useDispatch();
 
@@ -30,10 +28,11 @@ const ModalSignIn: FC<ModalSignInProps> = ({
         setErrors([res.data.message]);
         throw new Error("Response error");
       } else {
-        localStorage.setItem(`token`, res.data.token);
+        localStorage.setItem("token", res.data.token);
+
         dispatch(signIn());
         onBackdropClick();
-        setUsername(res.data.username);
+
         console.log(res);
       }
     } catch (e) {
@@ -58,17 +57,18 @@ const ModalSignIn: FC<ModalSignInProps> = ({
 
         <Formik
           initialValues={{ email: "", password: "" }}
-          validate={(values) => {
-            const errors: any = {};
-            if (!values.email) {
-              errors.email = "Required";
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = "Invalid email address";
-            }
-            return errors;
-          }}
+          // validate={(values) => {
+          //   const errors = { email: "" };
+          //   if (!values.email) {
+          //     errors.email = "Required";
+          //   } else if (
+          //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
+          //   ) {
+          //     errors.email = "Invalid email address";
+          //   }
+          //   return errors;
+          // }}
+          validationSchema={SignInSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               signInHandler(values);
@@ -87,7 +87,10 @@ const ModalSignIn: FC<ModalSignInProps> = ({
             /* and other goodies */
           }) => (
             <form className="signIn-form" onSubmit={handleSubmit}>
-              <label htmlFor="email">Email</label>
+              <div className="label-err">
+                <label htmlFor="email">Email</label>
+                <p className="sup-err ">{errors.email}</p>
+              </div>
               <input
                 type="email"
                 name="email"
@@ -95,8 +98,11 @@ const ModalSignIn: FC<ModalSignInProps> = ({
                 onBlur={handleBlur}
                 value={values.email}
               />
-              {errors.email && touched.email && errors.email}
-              <label htmlFor="password">Password</label>
+
+              <div className="label-err">
+                <label htmlFor="password">Password</label>
+                <p className="sup-err">{errors.password}</p>
+              </div>
               <input
                 type="password"
                 name="password"
@@ -104,7 +110,7 @@ const ModalSignIn: FC<ModalSignInProps> = ({
                 onBlur={handleBlur}
                 value={values.password}
               />
-              {errors.password && touched.password && errors.password}
+
               <button
                 className="sign-btn"
                 type="submit"

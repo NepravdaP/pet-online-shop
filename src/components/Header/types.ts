@@ -7,14 +7,11 @@ export interface HeaderProps {
   setIsSignUpVisible: (value: boolean) => void;
   toggleSignIn: () => void;
   toggleSignUp: () => void;
-  setUsername: (value: string) => void;
-  username: string;
 }
 export interface MobileHeaderProps {
   toggleSignIn: () => void;
   toggleSignUp: () => void;
-  setUsername: (value: string) => void;
+
   isSignInVisible: boolean;
   isSignUpVisible: boolean;
-  username: string;
 }

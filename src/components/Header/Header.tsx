@@ -21,8 +21,6 @@ const Header: FC<HeaderProps> = ({
   setIsSignUpVisible,
   toggleSignIn,
   toggleSignUp,
-  setUsername,
-  username,
 }) => {
   const isLoggedIn = useSelector(getIsLoggedInSelector);
 
@@ -63,7 +61,7 @@ const Header: FC<HeaderProps> = ({
           <FontAwesomeIcon className="cart-icon" icon={faCartShopping} />
         </Link>
         {isLoggedIn ? (
-          <LogOut username={username} />
+          <LogOut />
         ) : (
           <div className="login">
             <button className="sign-in" onClick={toggleSignIn}>
@@ -80,12 +78,10 @@ const Header: FC<HeaderProps> = ({
       <SignInWrapper
         isSignInVisible={isSignInVisible}
         onBackdropClick={toggleSignIn}
-        setUsername={setUsername}
       />
       <SignUpWrapper
         isSignUpVisible={isSignUpVisible}
         onBackdropClick={toggleSignUp}
-        setUsername={setUsername}
       />
     </header>
   );

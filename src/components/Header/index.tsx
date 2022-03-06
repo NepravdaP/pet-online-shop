@@ -10,7 +10,6 @@ const HeaderContainer: FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSignInVisible, setIsSignInVisible] = useState(false);
   const [isSignUpVisible, setIsSignUpVisible] = useState(false);
-  const [username, setUsername] = useState("");
 
   const toggleSignIn = () => {
     setIsSignInVisible(!isSignInVisible);
@@ -25,8 +24,6 @@ const HeaderContainer: FC = () => {
       toggleSignUp={toggleSignUp}
       isSignInVisible={isSignInVisible}
       isSignUpVisible={isSignUpVisible}
-      setUsername={setUsername}
-      username={username}
     />
   ) : (
     <Header
@@ -38,8 +35,6 @@ const HeaderContainer: FC = () => {
       setIsSignUpVisible={setIsSignUpVisible}
       toggleSignIn={toggleSignIn}
       toggleSignUp={toggleSignUp}
-      setUsername={setUsername}
-      username={username}
     />
   );
 };

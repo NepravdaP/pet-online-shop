@@ -7,15 +7,13 @@ import { ModalSignUPProps } from "./types";
 import { useDispatch } from "react-redux";
 
 import { signIn } from "../../redux/actions";
+import { SignUpSchema } from "../../Schemas/signValidate";
 interface Values {
   username: string;
   email: string;
   password: string;
 }
-const ModalSignUp: FC<ModalSignUPProps> = ({
-  onBackdropClick,
-  setUsername,
-}) => {
+const ModalSignUp: FC<ModalSignUPProps> = ({ onBackdropClick }) => {
   const [errors, setErrors] = useState<string[]>([]);
   const dispatch = useDispatch();
   const signUpHandler = async (values: Values) => {
@@ -29,10 +27,11 @@ const ModalSignUp: FC<ModalSignUPProps> = ({
         setErrors([res.data.message]);
         throw new Error("Response error");
       } else {
-        localStorage.setItem(`token`, res.data.token);
+        localStorage.setItem("token", res.data.token);
+
         dispatch(signIn());
         onBackdropClick();
-        setUsername(res.data.username);
+
         console.log(res);
       }
     } catch (e) {
@@ -56,17 +55,7 @@ const ModalSignUp: FC<ModalSignUPProps> = ({
         </div>
         <Formik
           initialValues={{ email: "", password: "", username: "" }}
-          validate={(values) => {
-            const errors: any = {};
-            if (!values.email) {
-              errors.email = "Required";
-            } else if (
-              !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-            ) {
-              errors.email = "Invalid email address";
-            }
-            return errors;
-          }}
+          validationSchema={SignUpSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
               signUpHandler(values);
@@ -86,7 +75,10 @@ const ModalSignUp: FC<ModalSignUPProps> = ({
             /* and other goodies */
           }) => (
             <form className="signIn-form" onSubmit={handleSubmit}>
-              <label htmlFor="username">Username</label>
+              <div className="label-err">
+                <label htmlFor="username">Username</label>
+                <p className="sup-err ">{errors.username}</p>
+              </div>
               <input
                 type="username"
                 name="username"
@@ -94,7 +86,11 @@ const ModalSignUp: FC<ModalSignUPProps> = ({
                 onBlur={handleBlur}
                 value={values.username}
               />
-              <label htmlFor="email">Email</label>
+
+              <div className="label-err">
+                <label htmlFor="email">Email</label>
+                <p className="sup-err ">{errors.email}</p>
+              </div>
               <input
                 type="email"
                 name="email"
@@ -102,8 +98,10 @@ const ModalSignUp: FC<ModalSignUPProps> = ({
                 onBlur={handleBlur}
                 value={values.email}
               />
-              {errors.email && touched.email && errors.email}
-              <label htmlFor="password">Password</label>
+              <div className="label-err">
+                <label htmlFor="password">Password</label>
+                <p className="sup-err">{errors.password}</p>
+              </div>
               <input
                 type="password"
                 name="password"
@@ -111,7 +109,7 @@ const ModalSignUp: FC<ModalSignUPProps> = ({
                 onBlur={handleBlur}
                 value={values.password}
               />
-              {errors.password && touched.password && errors.password}
+
               <button
                 className="sign-btn"
                 type="submit"

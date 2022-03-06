@@ -4,13 +4,11 @@ import "./App.css";
 import About from "./components/About";
 import Products from "./components/Products";
 import Cart from "./components/Cart";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HeaderContainer from "./components/Header";
-import SignInWrapper from "./components/SignIn";
+
 import { useDispatch, useSelector } from "react-redux";
 import { getIsLoggedInSelector } from "./redux/selectors";
 import { signIn } from "./redux/actions";
