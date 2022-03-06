@@ -4,9 +4,25 @@ import DropdownMenu from "../DropdownMenu";
 import { ROUTES } from "../../routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import SignInWrapper from "../SignIn";
+import SignUpWrapper from "../SignUp";
+import { useSelector } from "react-redux";
+import { getIsLoggedInSelector } from "../../redux/selectors";
 
-const Header = () => {
-  const [isVisible, setIsVisible] = useState(false);
+import LogOut from "../LogOut";
+import { HeaderProps } from "./types";
+
+const Header: FC<HeaderProps> = ({
+  isVisible,
+  setIsVisible,
+  isSignInVisible,
+  isSignUpVisible,
+  setIsSignInVisible,
+  setIsSignUpVisible,
+  toggleSignIn,
+  toggleSignUp,
+}) => {
+  const isLoggedIn = useSelector(getIsLoggedInSelector);
 
   return (
     <header>
@@ -44,18 +60,29 @@ const Header = () => {
         <Link to={ROUTES.CART} className="route-link">
           <FontAwesomeIcon className="cart-icon" icon={faCartShopping} />
         </Link>
-
-        <button className="sign-in">
-          <Link to={ROUTES.SIGNIN} className="route-link">
-            Sign In
-          </Link>
-        </button>
-        <button className="sign-up">
-          <Link to={ROUTES.SIGNUP} className="route-link">
-            Sign Up
-          </Link>
-        </button>
+        {isLoggedIn ? (
+          <LogOut />
+        ) : (
+          <div className="login">
+            <button className="sign-in" onClick={toggleSignIn}>
+              <p className="route-link">Sign In</p>
+            </button>
+            <button className="sign-up" onClick={toggleSignUp}>
+              <Link to={ROUTES.SIGNUP} className="route-link">
+                Sign Up
+              </Link>
+            </button>
+          </div>
+        )}
       </div>
+      <SignInWrapper
+        isSignInVisible={isSignInVisible}
+        onBackdropClick={toggleSignIn}
+      />
+      <SignUpWrapper
+        isSignUpVisible={isSignUpVisible}
+        onBackdropClick={toggleSignUp}
+      />
     </header>
   );
 };

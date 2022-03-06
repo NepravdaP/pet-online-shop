@@ -4,19 +4,35 @@ import { ROUTES } from "../../routes";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-
+import SignInWrapper from "../SignIn";
+import SignUpWrapper from "../SignUp";
 import SideBar from "../SideBar";
+import { MobileHeaderProps } from "./types";
+import { useSelector } from "react-redux";
+import { getIsLoggedInSelector } from "../../redux/selectors";
+import LogOut from "../LogOut";
 
-const MobileHeader: FC = () => {
+const MobileHeader: FC<MobileHeaderProps> = ({
+  toggleSignIn,
+  toggleSignUp,
+  isSignInVisible,
+  isSignUpVisible,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const isLoggedIn = useSelector(getIsLoggedInSelector);
   //   const sidebarHandler = () => {
   //     isOpen ? setIsOpen(false) : setIsOpen(false);
   //   };
 
   return (
     <header>
-      <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
+      <SideBar
+        toggleSignIn={toggleSignIn}
+        toggleSignUp={toggleSignUp}
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+      />
       <div
         className="menu-bars"
         onClick={() => {
@@ -34,6 +50,28 @@ const MobileHeader: FC = () => {
           Logo
         </Link>
       </h1>
+      <SignInWrapper
+        isSignInVisible={isSignInVisible}
+        onBackdropClick={toggleSignIn}
+      />
+      <SignUpWrapper
+        isSignUpVisible={isSignUpVisible}
+        onBackdropClick={toggleSignUp}
+      />
+      {isLoggedIn ? (
+        <LogOut />
+      ) : (
+        <div className="login">
+          <button className="sign-in" onClick={toggleSignIn}>
+            <p className="route-link">Sign In</p>
+          </button>
+          <button className="sign-up" onClick={toggleSignUp}>
+            <Link to={ROUTES.SIGNUP} className="route-link">
+              Sign Up
+            </Link>
+          </button>
+        </div>
+      )}
     </header>
   );
 };

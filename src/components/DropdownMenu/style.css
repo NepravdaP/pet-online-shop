@@ -3,6 +3,7 @@
   top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10000;
 }
 /* .drop-triangle {
   margin-left: 65px;
@@ -24,4 +25,8 @@
 .drop-link {
   color: #fff;
   text-decoration: none;
+}
+.drop-link:hover {
+  color: #6f2232;
+  transition: 0.3s;
 }

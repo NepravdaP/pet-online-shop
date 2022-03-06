@@ -1,11 +1,16 @@
-import React from "react";
+import React, { FC, useState } from "react";
+import ModalSignUp from "./ModalSignUp";
 
-const SignUp = () => {
-  return (
-    <div className="signUp">
-      <h1>Sign Up</h1>
-    </div>
-  );
+import { ModalWrapperProps } from "./types";
+
+const SignUpWrapper: FC<ModalWrapperProps> = ({
+  onBackdropClick,
+  isSignUpVisible,
+}) => {
+  if (!isSignUpVisible) {
+    return null;
+  }
+  return <ModalSignUp onBackdropClick={onBackdropClick} />;
 };
 
-export default SignUp;
+export default SignUpWrapper;

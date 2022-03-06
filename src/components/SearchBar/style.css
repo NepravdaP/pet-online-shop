@@ -27,7 +27,8 @@ textarea {
 }
 .search-icon {
   position: absolute;
-  right: 3%;
-  top: 18%;
+  right: 2%;
+  top: 25%;
+  bottom: 20%;
   height: 20px;
 }

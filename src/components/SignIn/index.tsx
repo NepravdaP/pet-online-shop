@@ -1,11 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
-const SignIn:FC = () => {
-  return (
-    <div className="signIn">
-      <h1>Sign In</h1>
-    </div>
-  );
+import ModalSignIn from "./ModalSignIn";
+import { ModalWrapperProps } from "./types";
+
+const SignInWrapper: FC<ModalWrapperProps> = ({
+  onBackdropClick,
+  isSignInVisible,
+}) => {
+  if (!isSignInVisible) {
+    return null;
+  }
+  return <ModalSignIn onBackdropClick={onBackdropClick} />;
 };
 
-export default SignIn;
+export default SignInWrapper;

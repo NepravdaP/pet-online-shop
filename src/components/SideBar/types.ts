@@ -3,4 +3,6 @@ export interface Props {
 }
 export interface SidebarProps extends Props {
   setIsOpen: (value: boolean) => void;
+  toggleSignIn: () => void;
+  toggleSignUp: () => void;
 }
