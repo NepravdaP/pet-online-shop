@@ -47,3 +47,34 @@
   text-align: center;
   margin-bottom: 30px;
 }
+.joined {
+  background-color: #6f2232;
+  color: #fff;
+  border: 0;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin-left: 2%;
+  padding-left: 5px;
+}
+.info-list {
+  display: flex;
+  padding-left: 2%;
+}
+.update-btn {
+  padding: 0.5rem 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-color: #1a1a1d;
+  border: 0;
+}
+.update-btn:hover {
+  background-color: #fff;
+  color: #000;
+  transition: 0.3s;
+}
+.btn-error {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 5% auto auto;
+}

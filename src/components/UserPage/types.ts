@@ -6,6 +6,7 @@ export interface ProfileSettingsProps {
 export interface UserInfoProps {
   userInfo: User;
   isDisabled: boolean;
+  setIsDisabled: (value: boolean) => void;
 }
 export interface User {
   createdAt: string;
@@ -16,6 +17,7 @@ export interface User {
   username: string;
   __v: number;
   _id: string;
+  description: string | undefined;
 }
 export interface InputProps {
   isDisabled: boolean;
@@ -27,4 +29,17 @@ export interface ModalDeleteProps {
 export interface Values {
   username: string;
   password: string;
+}
+export interface ChangePasswordProps {
+  toggleChangePassword: () => void;
+  userInfo: User;
+}
+export interface PasswordValues {
+  oldPassword: string;
+  newPassword: string;
+}
+export interface UpdateValues {
+  username: string;
+  email: string;
+  description: string;
 }

@@ -48,3 +48,14 @@ export const InfoInput = styled.input<InputProps>`
   margin-left: 2%;
   padding-left: 5px;
 `;
+export const StyledTextArea = styled.input<InputProps>`
+  background-color: ${({ isDisabled }) => (isDisabled ? "#6f2232" : "#fff")};
+  color: ${({ isDisabled }) => (isDisabled ? "#fff" : "#000")};
+  border: 0;
+
+  /* line-height: 3rem; */
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  margin-left: 2%;
+  padding-left: 5px;
+`;

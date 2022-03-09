@@ -19,3 +19,18 @@ export const SignInSchema = Yup.object().shape({
     .required("You need at least 6 chars"),
   email: Yup.string().email("Invalid email").required("Put your email below"),
 });
+
+export const ChangePasswordSchema = Yup.object().shape({
+  newPassword: Yup.string()
+    .min(3, "You need at least 6 chars")
+    .max(50, "Too Long!")
+    .required("You need at least 6 chars"),
+});
+export const UpdateSchema = Yup.object().shape({
+  username: Yup.string()
+    .min(3, "You need at least 3 chars")
+    .max(50, "Too Long!")
+    .required("Put your username below"),
+
+  email: Yup.string().email("Invalid email").required("Required"),
+});

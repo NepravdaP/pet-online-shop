@@ -17,16 +17,17 @@ import { User } from "./types";
 
 const UserPage = () => {
   const decodedToken = getDecodedToken();
+
   const [isDisabled, setIsDisabled] = useState(true);
   const [userInfo, setUserInfo] = useState<User>();
+
   const getUser = async () => {
     try {
       const res = await axios.get(
         `http://localhost:5000/api/auth/getuser/${decodedToken.username}`
       );
-      console.log(decodedToken.username);
+
       setUserInfo(res.data.user);
-      console.log(userInfo);
     } catch (e) {
       console.error(e);
     }
@@ -52,7 +53,11 @@ const UserPage = () => {
       <InfoWrapper>
         <UserInfoWrapper>
           {userInfo ? (
-            <UserInfo userInfo={userInfo} isDisabled={isDisabled} />
+            <UserInfo
+              setIsDisabled={setIsDisabled}
+              userInfo={userInfo}
+              isDisabled={isDisabled}
+            />
           ) : (
             <span className="loader info-spiner" />
           )}

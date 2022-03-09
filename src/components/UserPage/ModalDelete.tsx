@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import ReactDOM from "react-dom";
 import { ModalBox, ModalWrapper } from "../SignIn/styled";
 import { ModalDeleteProps, Values } from "./types";
@@ -8,23 +8,29 @@ import axios from "axios";
 import { signOut } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 const ModalDelete: FC<ModalDeleteProps> = ({ toggleDeleteModal, userInfo }) => {
+  const [errors, setErrors] = useState<string[]>([]);
   const dispatch = useDispatch();
   const redirect = useNavigate();
   const deleteHandler = async (values: Values) => {
     try {
-      console.log(values);
+      // console.log(values);
       const res = await axios.delete(
         `http://localhost:5000/api/auth/deleteuser`,
         { data: values }
       );
       if (res.data.message === "User successfully deleted") {
-        redirect("/");
-        localStorage.removeItem("token");
-        dispatch(signOut());
-        toggleDeleteModal();
+        setErrors([res.data.message]);
+        setTimeout(() => {
+          redirect("/");
+          localStorage.removeItem("token");
+          dispatch(signOut());
+          toggleDeleteModal();
+        }, 400);
+      } else {
+        setErrors([res.data.message]);
       }
 
-      console.log(res);
+      // console.log(res);
     } catch (e) {
       console.error(e);
     }
@@ -33,6 +39,17 @@ const ModalDelete: FC<ModalDeleteProps> = ({ toggleDeleteModal, userInfo }) => {
   return ReactDOM.createPortal(
     <ModalWrapper onClick={toggleDeleteModal}>
       <ModalBox onClick={(e) => e.stopPropagation()}>
+        <h1 className="sign-header">Delete account </h1>
+        <div className="error-box">
+          {errors &&
+            errors.map((el) => {
+              return (
+                <p className="auth-error" key={el}>
+                  {el}
+                </p>
+              );
+            })}
+        </div>
         <Formik
           initialValues={{ password: "", username: userInfo.username }}
           onSubmit={(values, { setSubmitting }) => {
