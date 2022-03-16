@@ -58,7 +58,7 @@ const MobileHeader: FC<MobileHeaderProps> = ({
         isSignUpVisible={isSignUpVisible}
         onBackdropClick={toggleSignUp}
       />
-      {isLoggedIn ? (
+      {/* {isLoggedIn ? (
         <LogOut />
       ) : (
         <div className="login">
@@ -71,7 +71,7 @@ const MobileHeader: FC<MobileHeaderProps> = ({
             </Link>
           </button>
         </div>
-      )}
+      )} */}
     </header>
   );
 };
