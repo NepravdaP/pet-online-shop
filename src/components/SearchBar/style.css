@@ -1,5 +1,4 @@
 .search-input {
-  position: relative;
   height: 50px;
   width: 40vw;
   background-color: #6f2232;
@@ -19,7 +18,7 @@
 }
 .search-input::placeholder {
   font-size: 18px;
-  color: #rgba(78, 78, 80, 1);
+  color: rgba(78, 78, 80, 1);
   font-family: "Roboto", sans-serif;
 }
 textarea {

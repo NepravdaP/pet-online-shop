@@ -18,7 +18,7 @@ export interface User {
   __v: number;
   _id: string;
   description: string | undefined;
-  img: string;
+  avatar: string;
 }
 export interface InputProps {
   isDisabled: boolean;

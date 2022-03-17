@@ -1,3 +1,5 @@
 import styled from "styled-components";
 
-export const SearchBarWrapper = styled.div``;
+export const SearchBarWrapper = styled.div`
+  position: relative;
+`;

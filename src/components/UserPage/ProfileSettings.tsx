@@ -31,12 +31,13 @@ const ProfileSettings: FC<ProfileSettingsProps> = ({
     try {
       const formData = new FormData();
       formData.append("file", file);
+      formData.append("id", userInfo.id);
       const res = await axios.post(
         `http://localhost:5000/api/auth/update/avatar`,
         formData,
+
         {
           headers: {
-            // username: userInfo.username,
             "Content-Type": "multipart/form-data",
           },
         }
@@ -51,7 +52,7 @@ const ProfileSettings: FC<ProfileSettingsProps> = ({
   return (
     <SettingsWrapper>
       <img
-        src={userInfo.img ? userInfo.img : blank}
+        src={userInfo.avatar ? userInfo.avatar : blank}
         className="profile-pic"
       ></img>
 
