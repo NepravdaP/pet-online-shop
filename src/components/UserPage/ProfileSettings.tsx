@@ -4,11 +4,14 @@ import ModalChangePassword from "./ModalChangePassword";
 import ModalDelete from "./ModalDelete";
 import { SettingsWrapper } from "./styled";
 import axios from "axios";
-import { ProfileSettingsProps } from "./types";
+import { ProfileSettingsProps, UptadeAvatarResoponseData } from "./types";
+import { User } from "../../commonTypes/user.types";
+
 const ProfileSettings: FC<ProfileSettingsProps> = ({
   isDisabled,
   setIsDisabled,
   userInfo,
+  setUserInfo,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isChangePassword, setIsChangePassword] = useState(false);
@@ -32,7 +35,7 @@ const ProfileSettings: FC<ProfileSettingsProps> = ({
       const formData = new FormData();
       formData.append("file", file);
       formData.append("id", userInfo.id);
-      const res = await axios.post(
+      const res = await axios.post<UptadeAvatarResoponseData>(
         `http://localhost:5000/api/auth/update/avatar`,
         formData,
 
@@ -42,6 +45,8 @@ const ProfileSettings: FC<ProfileSettingsProps> = ({
           },
         }
       );
+
+      setUserInfo({ ...userInfo, avatar: res.data.user.avatar });
 
       console.log(res);
     } catch (error) {

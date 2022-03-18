@@ -13,7 +13,7 @@ import RecentVisited from "./RecentVisited";
 import axios from "axios";
 
 import getDecodedToken from "../../utils/getDecodedToken";
-import { User } from "./types";
+import { User } from "../../commonTypes/user.types";
 
 const UserPage = () => {
   const decodedToken = getDecodedToken();
@@ -44,6 +44,7 @@ const UserPage = () => {
             isDisabled={isDisabled}
             userInfo={userInfo}
             setIsDisabled={setIsDisabled}
+            setUserInfo={setUserInfo}
           />
         ) : (
           <span className="loader info-spiner" />

@@ -39,7 +39,10 @@ const Products: FC = () => {
       </ProductSearcWrapper>
       <ProductsWrapper>
         {products.map((el) => (
-          <ProductCard key={el.image}>jopa</ProductCard>
+          <ProductCard key={el.image}>
+            <div className="thumbnail"></div>
+            
+          </ProductCard>
         ))}
       </ProductsWrapper>
     </ProductPageWrapper>

@@ -1,25 +1,16 @@
+import { User } from "../../commonTypes/user.types";
 export interface ProfileSettingsProps {
   isDisabled: boolean;
   setIsDisabled: (value: boolean) => void;
   userInfo: User;
+  setUserInfo: (Values: User) => void;
 }
 export interface UserInfoProps {
   userInfo: User;
   isDisabled: boolean;
   setIsDisabled: (value: boolean) => void;
 }
-export interface User {
-  createdAt: string;
-  email: string;
-  id: string;
-  password: string;
-  updatedAt: string;
-  username: string;
-  __v: number;
-  _id: string;
-  description: string | undefined;
-  avatar: string;
-}
+
 export interface InputProps {
   isDisabled: boolean;
 }
@@ -43,4 +34,7 @@ export interface UpdateValues {
   username: string;
   email: string;
   description: string;
+}
+export interface UptadeAvatarResoponseData {
+  user: User;
 }
