@@ -20,6 +20,7 @@ const Home: FC = () => {
     setValue(value);
     setIsSearching(true);
   };
+
   const debouncedValue = useDebounce(value, 300);
 
   useEffect(() => {

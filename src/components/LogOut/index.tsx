@@ -4,15 +4,15 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import "./style.css";
 import { useDispatch } from "react-redux";
 import { signOut } from "../../redux/actions";
-import { DecodedObj } from "./types";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../routes";
-import jwt_decode from "jwt-decode";
+import getDecodedToken from "../../utils/getDecodedToken";
 const LogOut: FC = () => {
   const dispatch = useDispatch();
-  const localToken: string | null = localStorage.getItem("token");
+  // const localToken: string | null = localStorage.getItem("token");
 
-  const decodedToken: DecodedObj = jwt_decode(localToken ? localToken : "");
+  // const decodedToken: DecodedObj = jwt_decode(localToken ? localToken : "");
+  const decodedToken = getDecodedToken();
 
   const logOut = () => {
     localStorage.removeItem("token");

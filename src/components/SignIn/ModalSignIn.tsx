@@ -57,17 +57,6 @@ const ModalSignIn: FC<ModalSignInProps> = ({ onBackdropClick }) => {
 
         <Formik
           initialValues={{ email: "", password: "" }}
-          // validate={(values) => {
-          //   const errors = { email: "" };
-          //   if (!values.email) {
-          //     errors.email = "Required";
-          //   } else if (
-          //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          //   ) {
-          //     errors.email = "Invalid email address";
-          //   }
-          //   return errors;
-          // }}
           validationSchema={SignInSchema}
           onSubmit={(values, { setSubmitting }) => {
             setTimeout(() => {
@@ -79,7 +68,6 @@ const ModalSignIn: FC<ModalSignInProps> = ({ onBackdropClick }) => {
           {({
             values,
             errors,
-            touched,
             handleChange,
             handleBlur,
             handleSubmit,

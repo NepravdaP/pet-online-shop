@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import DropdownMenu from "../DropdownMenu";
 import { ROUTES } from "../../routes";
@@ -17,8 +17,6 @@ const Header: FC<HeaderProps> = ({
   setIsVisible,
   isSignInVisible,
   isSignUpVisible,
-  setIsSignInVisible,
-  setIsSignUpVisible,
   toggleSignIn,
   toggleSignUp,
 }) => {

@@ -65,8 +65,11 @@ label {
 
 .auth-error {
   position: absolute;
-
-  left: 40%;
+  top: 22%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  padding-top: 20px;
   text-align: center;
   color: #fff;
   /* color: #6f2232; */

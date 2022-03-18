@@ -4,7 +4,7 @@ import { ROUTES } from "../../routes";
 import "./style.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Props, SidebarProps } from "./types";
+import { SidebarProps } from "./types";
 import { SidebarWrapper } from "./styled";
 import { links } from "./constants";
 
