@@ -1,0 +1,120 @@
+.product-info {
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(78, 78, 80, 0.8);
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product-rating-pricing {
+  display: flex;
+}
+.filters {
+  position: relative;
+  height: 50px;
+  width: 10vw;
+  background-color: #6f2232;
+  /* border: 2px solid #4e4e50; */
+  margin-left: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.filters:active {
+  border: 0;
+}
+.checkbox-block {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.linux-checkbox {
+  margin: 10px;
+}
+.filter-heading {
+  font-size: 20px;
+  margin-bottom: 5%;
+}
+.product-info {
+  padding-bottom: 5px;
+}
+.filter-btn {
+  width: 70%;
+  height: 15%;
+  margin: auto;
+  margin-top: 10px;
+
+  color: #fff;
+  background-color: #4e4e50;
+  font-family: "Roboto", sans-serif;
+  border: 0;
+  font-size: 20px;
+}
+
+.filter-range {
+  appearance: none;
+
+  height: 5px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.filter-range::-ms-fill-lower {
+  background-color: #4e4e50;
+}
+.filter-range::-ms-fill-upper {
+  background-color: #4e4e50;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #4f1a20;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  color: #4f1a20;
+  background: #4f1a20;
+}
+.filter-checkbox {
+  background-color: #4e4e50;
+  color: #4f1a20;
+}
+.filter-form {
+  margin: 10px 30px;
+}
+.product-title {
+  font-size: 20px;
+}
+.product-loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(50%, 50%);
+  z-index: 1000000000;
+  width: 100px;
+  height: 100px;
+  border: 5px solid #fff;
+  border-bottom-color: #6f2232;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.range-num {
+  color: #fff;
+  margin-left: 10px;
+  vertical-align: middle;
+  font-size: 16px;
+}
