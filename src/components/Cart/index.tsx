@@ -4,7 +4,8 @@ import "./style.css";
 import { useDispatch } from "react-redux";
 import { GamesItem, CartItem } from "../DropdownSearch/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { INCREASE } from "../../redux/actions/constants";
+import { tableHeaderTitles } from "./constants";
+import { decrease, increase } from "../../redux/actions/cartPositionsAction";
 import {
   faMinus,
   faPlus,
@@ -17,7 +18,6 @@ import {
   faLinux,
   faWindows,
 } from "@fortawesome/free-brands-svg-icons";
-import { decrease, increase } from "../../redux/actions/cartPositionsAction";
 
 const Cart: FC = () => {
   const localCart = JSON.parse(localStorage.Cart || "[]");
@@ -83,16 +83,6 @@ const Cart: FC = () => {
       console.log("unmount");
     };
   }, []);
-  const tableHeaderTitles = [
-    { modifier: "pos", content: "№" },
-    { modifier: "title", content: "Title" },
-    { modifier: "platform", content: "Platforms" },
-    { modifier: "rating", content: "Rating" },
-    { modifier: "check", content: "Check" },
-    { modifier: "quantity", content: "Quantity" },
-    { modifier: "price", content: "Price" },
-    { modifier: "remove", content: "Remove" },
-  ];
 
   return (
     <CartWrapper>
