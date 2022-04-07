@@ -1,12 +1,11 @@
 import React, { FC } from "react";
 import { DropdownFilterWrapper } from "./styled";
 import { Formik } from "formik";
-import { DropdownFilterProps, FilterValues } from "./types";
-import { Link } from "react-router-dom";
+import { DropdownFilterProps } from "./types";
 
 const DropdownFilter: FC<DropdownFilterProps> = ({
   setFilterValues,
-  queryString,
+
   setQueryString,
 }) => {
   // const checkboxHandler = (values: FilterValues) => {};

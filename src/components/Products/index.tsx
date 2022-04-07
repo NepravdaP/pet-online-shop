@@ -13,14 +13,17 @@ import {
   ProductsWrapper,
   ProductCard,
 } from "./styled";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import DropdownFilter from "./DropdownFilter";
 import useDebounce from "../../hooks/useDebounce";
 import { FilterValues } from "./types";
 
 const Products: FC = () => {
+  const cartStore = JSON.parse(localStorage.Cart || "[]");
   const { search } = useLocation();
   const [isFiltersVisible, setIsFilterVisible] = useState(false);
+  const [addToCart, setAddToCart] = useState(false);
+  const [cart, setCart] = useState<GamesItem[]>(cartStore);
   const [filterValues, setFilterValues] = useState<FilterValues>();
   const [searchResult, setSearchResult] = useState<GamesItem[]>([]);
   const [queryString, setQueryString] = useState("");
@@ -91,6 +94,10 @@ const Products: FC = () => {
       getProducts();
     }
   }, []);
+  useEffect(() => {
+    console.log(cart);
+    localStorage.setItem("Cart", JSON.stringify(cart));
+  }, [cart.length]);
 
   const filterProducts = async (queryString: string) => {
     try {
@@ -141,7 +148,26 @@ const Products: FC = () => {
               key={el.image}
               bg={el.image}
               style={{ backgroundImage: `url(${el.image})` }}
+              onMouseEnter={() => {
+                setAddToCart(true);
+              }}
+              // onMouseLeave={() => {
+              //   setAddToCart(false);
+              // }}
             >
+              {addToCart && (
+                <div key={Math.random() * 1000} className="addToCart-btn">
+                  <FontAwesomeIcon
+                    className="cart-plus-icon"
+                    icon={faCartPlus}
+                    onClick={(e) => {
+                      e.preventDefault();
+
+                      setCart([...cart, el]);
+                    }}
+                  />
+                </div>
+              )}
               <div className="product-info" style={{ color: el.color }}>
                 <div className="product-title">{el.title}</div>
                 <div className="product-rating-pricing">

@@ -18,3 +18,7 @@ export interface GamesItem {
   updatedAt: string;
   __v: number;
 }
+export interface CartItem extends GamesItem {
+  quantity: number;
+  checked: boolean;
+}

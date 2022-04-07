@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { GamesItem } from "../Slider/types";
-import { ProductCardProps, ProductWraperProps } from "./types";
+
+import { ProductCardProps } from "./types";
 
 export const ProductPageWrapper = styled.div`
   width: 100%;

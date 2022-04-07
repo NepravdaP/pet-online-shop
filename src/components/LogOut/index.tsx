@@ -15,7 +15,7 @@ const LogOut: FC = () => {
   const decodedToken = getDecodedToken();
 
   const logOut = () => {
-    localStorage.removeItem("token");
+    localStorage.clear();
     dispatch(signOut());
   };
   return (

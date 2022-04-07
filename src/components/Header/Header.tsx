@@ -7,10 +7,11 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import SignInWrapper from "../SignIn";
 import SignUpWrapper from "../SignUp";
 import { useSelector } from "react-redux";
-import { getIsLoggedInSelector } from "../../redux/selectors";
+import { getCounter, getIsLoggedInSelector } from "../../redux/selectors";
 
 import LogOut from "../LogOut";
 import { HeaderProps } from "./types";
+import { number } from "yup";
 
 const Header: FC<HeaderProps> = ({
   isVisible,
@@ -21,7 +22,7 @@ const Header: FC<HeaderProps> = ({
   toggleSignUp,
 }) => {
   const isLoggedIn = useSelector(getIsLoggedInSelector);
-
+  const cartCounter = useSelector(getCounter);
   return (
     <header>
       <nav className="big-nav">
@@ -55,6 +56,10 @@ const Header: FC<HeaderProps> = ({
       </h1>
 
       <div className="header-sign">
+        {cartCounter > 0 ? (
+          <div className="cart-counter">{cartCounter}</div>
+        ) : null}
+
         <Link to={ROUTES.CART} className="route-link">
           <FontAwesomeIcon className="cart-icon" icon={faCartShopping} />
         </Link>

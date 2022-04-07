@@ -2,7 +2,7 @@ import { Formik } from "formik";
 import React, { FC, useState } from "react";
 import { InfoInput, StyledTextArea } from "./styled";
 import { UpdateValues, UserInfoProps } from "./types";
-import { User } from "../../commonTypes/user.types";
+
 import moment from "moment";
 import axios from "axios";
 import { UpdateSchema } from "../../Schemas/signValidate";
