@@ -5,7 +5,6 @@ import ModalDelete from "./ModalDelete";
 import { SettingsWrapper } from "./styled";
 import axios from "axios";
 import { ProfileSettingsProps, UptadeAvatarResoponseData } from "./types";
-import { User } from "../../commonTypes/user.types";
 
 const ProfileSettings: FC<ProfileSettingsProps> = ({
   isDisabled,
@@ -15,7 +14,7 @@ const ProfileSettings: FC<ProfileSettingsProps> = ({
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isChangePassword, setIsChangePassword] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+
   const changeProfileHandler = () => {
     setIsDisabled(!isDisabled);
   };
